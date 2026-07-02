@@ -12,3 +12,9 @@ export const navigation = [
     href: "#testimonials",
   },
 ];
+
+export const heroContent = [
+  "Free 14-day trial",
+  "No credit card",
+  "Cancel anytime",
+];
