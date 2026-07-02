@@ -24,7 +24,7 @@ const Hero = () => {
               className="rounded-full px-4 py-1.5 font-medium flex gap-2"
             >
               <Sparkles className="size-4" />
-              AI Influencer Platform
+              Introducing Faux
             </Badge>
 
             <div className="flex flex-col gap-6">
@@ -46,7 +46,7 @@ const Hero = () => {
             <div className="flex flex-wrap gap-4">
               <Button size="lg" asChild>
                 <Link href="/" className="flex gap-2">
-                  Start Free
+                  Start Free with Faux
                   <ArrowRight className="size-4" />
                 </Link>
               </Button>
@@ -72,7 +72,7 @@ const Hero = () => {
             <Card className="overflow-hidden rounded-3xl border shadow-2xl">
               <div className="relative aspect-4/5">
                 <Image
-                  src="/logo.jpg"
+                  src="/influencer.jpg"
                   alt="AI Influencer"
                   fill
                   priority
