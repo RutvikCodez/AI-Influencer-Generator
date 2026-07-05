@@ -15,30 +15,32 @@ const Features = () => {
 
       <div className="mx-auto flex max-w-7xl flex-col gap-20 px-6 lg:px-8">
         {/* Header */}
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl text-center flex flex-col gap-5 items-center justify-center">
           <Badge
             variant="secondary"
-            className="mb-5 rounded-full px-4 py-1.5"
+            className="rounded-full px-4 py-1.5"
           >
             Everything You Need
           </Badge>
 
-          <h2 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+          <div className="flex flex-col gap-6">
+            <h2 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
             Powerful Features
             <span className="block text-primary">
               Built for Modern Creators
             </span>
           </h2>
 
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
+          <p className="text-lg leading-8 text-muted-foreground">
             Create, manage, automate, and scale your AI influencers from a
             single intelligent platform designed for speed, consistency, and
             growth.
           </p>
+          </div>
         </div>
 
         {/* Features Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {features.map((feature, index) => (
             <FeatureCard key={index} {...feature} />
           ))}

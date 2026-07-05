@@ -12,15 +12,15 @@ const FeatureCard = ({
 
       <CardContent className="flex h-full flex-col gap-6 p-8">
         {/* Icon */}
-        <div className="flex h-14 w-14 items-center justify-center rounded-2xl border bg-muted transition-all duration-300 group-hover:scale-105">
+        <div className="flex size-14 items-center justify-center rounded-2xl border bg-muted transition-all duration-300 group-hover:scale-105">
           <Icon
-            className="h-7 w-7 text-primary transition-transform duration-300 group-hover:rotate-6"
+            className="size-7 text-primary transition-transform duration-300 group-hover:rotate-6"
             strokeWidth={1.8}
           />
         </div>
 
         {/* Content */}
-        <div className="space-y-3">
+        <div className="flex flex-col gap-3">
           <h3 className="text-xl font-semibold tracking-tight transition-colors group-hover:text-primary">
             {title}
           </h3>
