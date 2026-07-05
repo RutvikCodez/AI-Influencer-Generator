@@ -1,3 +1,4 @@
+import CopyrightBar from "@/components/CopyrightBar";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
@@ -9,6 +10,7 @@ const LandingPage = () => {
     <Hero />
     <Features />
     <Pricing />
+    <CopyrightBar />
   </main>;
 };
 

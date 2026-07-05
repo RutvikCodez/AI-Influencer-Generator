@@ -38,28 +38,15 @@ const Pricing = () => {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-3">
           {pricingTiers.map((tier, index) => (
             <PricingCard key={index} {...tier} />
           ))}
         </div>
 
         {/* Footer */}
-        <div className="flex flex-col items-center gap-4 text-center">
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
-            {[
-              "14-day free trial",
-              "No credit card required",
-              "Cancel anytime",
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary" />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-
-          <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm leading-7 text-muted-foreground">
             Every plan includes secure cloud infrastructure, continuous feature
             updates, and access to our customer support team.
           </p>
