@@ -31,7 +31,7 @@ const AuthLayout = ({
                   <span className="font-semibold tracking-tight">Faux</span>
 
                   <span className="text-xs text-muted-foreground">
-                    Create viral AI creators
+                    AI Influencer Generator
                   </span>
                 </div>
               </Link>
@@ -43,17 +43,17 @@ const AuthLayout = ({
                   className="rounded-full px-4 py-1.5 font-medium flex gap-2"
                 >
                   <Zap className="size-4" />
-                  AI Powered Platform
+                  Introducing Faux
                 </Badge>
-                
+
                 <h1 className="max-w-lg text-5xl font-bold leading-tight tracking-tight">
-                  Create your next AI workflow with confidence.
+                  Build virtual influencers that actually grow.
                 </h1>
 
                 <p className="max-w-md text-lg text-muted-foreground leading-relaxed">
-                  Build AI-powered resumes, interview preparation, recruitment
-                  workflows and career insights from one beautifully designed
-                  platform.
+                  Generate AI images, videos, captions, and voices for your
+                  virtual influencers, then publish and scale across every
+                  platform from one dashboard.
                 </p>
               </div>
 

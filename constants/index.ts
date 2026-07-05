@@ -9,6 +9,7 @@ import {
   Shirt,
   Mail,
   Lock,
+  User,
 } from "lucide-react";
 import z from "zod";
 
@@ -170,8 +171,58 @@ export const signInFields = [
   },
 ];
 
+export const signUpFormSchema = z.object({
+  fullName: z
+    .string()
+    .trim()
+    .min(2, "Full name must be at least 2 characters.")
+    .max(50, "Full name must be at most 50 characters."),
+
+  email: z
+    .string()
+    .trim()
+    .min(1, "Email is required.")
+    .email("Please enter a valid email address."),
+
+  password: z
+    .string()
+    .min(8, "Password must be at least 8 characters.")
+    .max(128, "Password must be at most 128 characters.")
+    .regex(/[a-z]/, "Password must contain at least one lowercase letter.")
+    .regex(/[A-Z]/, "Password must contain at least one uppercase letter.")
+    .regex(/\d/, "Password must contain at least one number.")
+    .regex(
+      /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/,
+      "Password must contain at least one special character."
+    ),
+});
+
+export const signUpFields = [
+  {
+    name: "fullName" as const,
+    label: "Full Name",
+    placeholder: "John Doe",
+    icon: User,
+    type: "text",
+  },
+  {
+    name: "email" as const,
+    label: "Email Address",
+    placeholder: "you@example.com",
+    icon: Mail,
+    type: "email",
+  },
+  {
+    name: "password" as const,
+    label: "Password",
+    placeholder: "Create a strong password",
+    icon: Lock,
+    type: "password",
+  },
+];
+
 export const authFeatures = [
-  "AI-powered content generation",
-  "Professional influencer toolkit",
-  "Secure cloud workspace",
+  "Unlimited AI image & video generation",
+  "Multi-platform publishing & scheduling",
+  "Secure, private cloud workspace",
 ];
