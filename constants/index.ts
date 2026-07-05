@@ -1,3 +1,5 @@
+import FeatureCard from "@/components/FeatureCard";
+import PricingCard from "@/components/PricingCard";
 import { Home } from "lucide-react";
 
 export const heroContent = [
@@ -6,7 +8,7 @@ export const heroContent = [
   "Cancel anytime",
 ];
 
-export const features = [
+const features: FeatureCardProps[] = [
   {
     title: "AI Image Generation",
     description:
@@ -45,7 +47,7 @@ export const features = [
   },
 ];
 
-export const pricingTiers = [
+const pricingTiers: PricingCardProps[] = [
   {
     name: 'Starter',
     price: '$99',
@@ -93,5 +95,30 @@ export const pricingTiers = [
       'White-label options',
     ],
     cta: 'Contact Sales',
+  },
+]
+
+export const sections: Section[] = [
+  {
+    badge: "Everything You Need",
+    title: "Powerful Features",
+    subtitle: "Built for Modern Creators",
+    description:
+      "Create, manage, automate, and scale your AI influencers from a single intelligent platform designed for speed, consistency, and growth.",
+    bottomLine:
+      "Designed to help creators, agencies, and brands launch AI-powered influencer businesses with less manual work and more automation.",
+    data: features,
+    Component: FeatureCard,
+  },
+  {
+    badge: "Pricing",
+    title: "Simple Pricing",
+    subtitle: "Built to Scale With You",
+    description:
+      "Start for free and upgrade only when you're ready. No hidden charges, no complicated pricing, and cancel anytime.",
+    bottomLine:
+      "Every plan includes secure cloud infrastructure, continuous feature updates, and access to our customer support team.",
+    data: pricingTiers,
+    Component: PricingCard,
   },
 ]

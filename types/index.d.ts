@@ -13,3 +13,17 @@ type PricingCardProps = {
   cta: string;
   popular?: boolean
 };
+
+type CardWrapperProps<T> = {
+  badge: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  bottomLine: string;
+  data: T[];
+  Component: ComponentType<T>;
+}
+
+type Section =
+  | CardWrapperProps<FeatureCardProps>
+  | CardWrapperProps<PricingCardProps>;
