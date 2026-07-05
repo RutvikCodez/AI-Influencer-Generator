@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { navigation } from "@/constants";
 import Image from "next/image";
 
 const Navbar = () => {
@@ -19,19 +18,6 @@ const Navbar = () => {
             </span>
           </div>
         </Link>
-
-        {/* Navigation */}
-        <nav className="hidden items-center gap-1 rounded-full border bg-card p-1 lg:flex">
-          {navigation.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
 
         {/* Actions */}
         <div className="flex items-center gap-3">
