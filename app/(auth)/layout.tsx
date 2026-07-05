@@ -1,5 +1,8 @@
+import { Badge } from "@/components/ui/badge";
 import { authFeatures } from "@/constants";
-import { Sparkles, ShieldCheck, Zap } from "lucide-react";
+import { ShieldCheck, Zap } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const AuthLayout = ({
@@ -21,26 +24,28 @@ const AuthLayout = ({
           <div className="flex w-full flex-col justify-between p-12">
             <div className="flex flex-col gap-10">
               {/* Logo */}
-              <div className="flex items-center gap-3">
-                <div className="flex size-11 items-center justify-center rounded-xl border bg-card">
-                  <Sparkles className="size-5" />
-                </div>
+              <Link href="/" className="group flex items-center gap-3">
+                <Image alt="Faux" src={"/icon.png"} width={40} height={40} />
 
-                <div>
-                  <h2 className="font-semibold text-lg">Faux</h2>
-                  <p className="text-sm text-muted-foreground">
-                    AI Recruitment Platform
-                  </p>
+                <div className="hidden sm:flex sm:flex-col">
+                  <span className="font-semibold tracking-tight">Faux</span>
+
+                  <span className="text-xs text-muted-foreground">
+                    Create viral AI creators
+                  </span>
                 </div>
-              </div>
+              </Link>
 
               {/* Heading */}
               <div className="flex flex-col gap-5">
-                <span className="inline-flex items-center gap-2 rounded-full border bg-card px-4 py-2 text-sm w-fit">
+                <Badge
+                  variant="secondary"
+                  className="rounded-full px-4 py-1.5 font-medium flex gap-2"
+                >
                   <Zap className="size-4" />
                   AI Powered Platform
-                </span>
-
+                </Badge>
+                
                 <h1 className="max-w-lg text-5xl font-bold leading-tight tracking-tight">
                   Create your next AI workflow with confidence.
                 </h1>
