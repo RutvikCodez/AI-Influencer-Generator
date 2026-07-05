@@ -1,5 +1,5 @@
-import FeatureCard from "@/components/FeatureCard";
-import PricingCard from "@/components/PricingCard";
+import FeatureCard from "@/components/landingPage/FeatureCard";
+import PricingCard from "@/components/landingPage/PricingCard";
 import {
   ImageIcon,
   Video,

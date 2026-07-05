@@ -1,7 +1,7 @@
-import CardWrapper from "@/components/CardWrapper";
-import CopyrightBar from "@/components/CopyrightBar";
-import Hero from "@/components/Hero";
-import Navbar from "@/components/Navbar";
+import CardWrapper from "@/components/reusable/CardWrapper";
+import CopyrightBar from "@/components/landingPage/CopyrightBar";
+import Hero from "@/components/landingPage/Hero";
+import Navbar from "@/components/landingPage/Navbar";
 import { sections } from "@/constants";
 import { Metadata } from "next";
 
