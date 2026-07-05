@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     url: "https://faux-weld.vercel.app",
     locale: "en_US",
     images: [
+      
       {
         url: "https://faux-weld.vercel.app/influencer.jpg",
         width: 1200,
