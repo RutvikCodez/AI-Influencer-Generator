@@ -7,7 +7,10 @@ import {
   Mic,
   UserCircle2,
   Shirt,
+  Mail,
+  Lock,
 } from "lucide-react";
+import z from "zod";
 
 export const heroContent = [
   "Free 14-day trial",
@@ -128,4 +131,47 @@ export const sections: Section[] = [
     data: pricingTiers,
     Component: PricingCard,
   },
+];
+
+export const signInFormSchema = z.object({
+  email: z
+    .string()
+    .trim()
+    .min(1, "Email is required.")
+    .email("Please enter a valid email address."),
+
+  password: z
+    .string()
+    .min(8, "Password must be at least 8 characters.")
+    .max(128, "Password must be at most 128 characters.")
+    .regex(/[a-z]/, "Password must contain at least one lowercase letter.")
+    .regex(/[A-Z]/, "Password must contain at least one uppercase letter.")
+    .regex(/\d/, "Password must contain at least one number.")
+    .regex(
+      /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/,
+      "Password must contain at least one special character.",
+    ),
+});
+
+export const signInFields = [
+ {
+    name: "email" as const,
+    label: "Email Address",
+    placeholder: "you@example.com",
+    icon: Mail,
+    type: "email",
+  },
+  {
+    name: "password" as const,
+    label: "Password",
+    placeholder: "Enter your password",
+    icon: Lock,
+    type: "password",
+  },
+];
+
+export const authFeatures = [
+  "AI-powered content generation",
+  "Professional influencer toolkit",
+  "Secure cloud workspace",
 ];
