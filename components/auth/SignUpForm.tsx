@@ -1,7 +1,7 @@
 "use client";
 import * as z from "zod";
 import Link from "next/link";
-import { Eye, EyeOff, } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
+import { signInWithGoogle } from "@/lib/actions";
 
 const SignUpForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -60,72 +61,65 @@ const SignUpForm = () => {
           className="flex flex-col gap-6"
         >
           <FieldGroup className="flex flex-col gap-5">
-            {signUpFields.map(({ name, label, placeholder, icon: Icon, type }) => (
-              <Controller
-                key={name}
-                name={name}
-                control={form.control}
-                render={({ field, fieldState }) => (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor={name}>{label}</FieldLabel>
+            {signUpFields.map(
+              ({ name, label, placeholder, icon: Icon, type }) => (
+                <Controller
+                  key={name}
+                  name={name}
+                  control={form.control}
+                  render={({ field, fieldState }) => (
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel htmlFor={name}>{label}</FieldLabel>
 
-                    <div className="relative">
-                      <Icon className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+                      <div className="relative">
+                        <Icon className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
 
-                      <Input
-                        {...field}
-                        id={name}
-                        placeholder={placeholder}
-                        autoComplete={name}
-                        type={
-                          name === "password"
-                            ? showPassword
-                              ? "text"
-                              : "password"
-                            : type
-                        }
-                        className={
-                          name === "password"
-                            ? "pl-10 pr-10"
-                            : "pl-10"
-                        }
-                      />
-
-                      {name === "password" && (
-                        <button
-                          type="button"
-                          onClick={() =>
-                            setShowPassword((prev) => !prev)
+                        <Input
+                          {...field}
+                          id={name}
+                          placeholder={placeholder}
+                          autoComplete={name}
+                          type={
+                            name === "password"
+                              ? showPassword
+                                ? "text"
+                                : "password"
+                              : type
                           }
-                          className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground transition-opacity hover:opacity-80"
-                        >
-                          {showPassword ? (
-                            <EyeOff className="size-4" />
-                          ) : (
-                            <Eye className="size-4" />
-                          )}
-                        </button>
-                      )}
-                    </div>
+                          className={
+                            name === "password" ? "pl-10 pr-10" : "pl-10"
+                          }
+                        />
 
-                    {fieldState.invalid && (
-                      <FieldError errors={[fieldState.error]} />
-                    )}
-                  </Field>
-                )}
-              />
-            ))}
+                        {name === "password" && (
+                          <button
+                            type="button"
+                            onClick={() => setShowPassword((prev) => !prev)}
+                            className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground transition-opacity hover:opacity-80"
+                          >
+                            {showPassword ? (
+                              <EyeOff className="size-4" />
+                            ) : (
+                              <Eye className="size-4" />
+                            )}
+                          </button>
+                        )}
+                      </div>
+
+                      {fieldState.invalid && (
+                        <FieldError errors={[fieldState.error]} />
+                      )}
+                    </Field>
+                  )}
+                />
+              ),
+            )}
           </FieldGroup>
         </form>
       </CardContent>
 
       <CardFooter className="flex flex-col gap-5 bg-transparent">
-        <Button
-          form="sign-up-form"
-          type="submit"
-          size="lg"
-          className="w-full"
-        >
+        <Button form="sign-up-form" type="submit" size="lg" className="w-full">
           Sign up
         </Button>
 
@@ -145,16 +139,18 @@ const SignUpForm = () => {
           variant="outline"
           size="lg"
           className="w-full gap-2 items-center flex"
+          onClick={async () => {
+            await signInWithGoogle();
+          }}
         >
           <Image alt="Google Logo" src={"/google.svg"} width={20} height={20} />
-
           Continue with Google
         </Button>
 
         <p className="text-center text-sm text-muted-foreground">
           Already have an account?{" "}
           <Link
-            href="/signin"
+            href="/sign-in"
             className="font-medium text-foreground hover:underline"
           >
             Sign in
